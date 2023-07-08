@@ -1,2 +1,2 @@
 # contact-book
-[![Video](URL_OF_YOUR_VIDEO_FILE)
+[![Video](contactbook-DEMO.mp4)
