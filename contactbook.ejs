@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>contact-book</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <h1>Contact Book</h1>
+    <h2>Search Contact</h2>
+    <form action="/search">
+        <input type="search" name="name" placeholder="search name">
+        <input type="search" name="phoneno" placeholder="search phoneno">
+        <input type="search" name="email" placeholder="search Email">
+        <input type="submit" value="search">
+        
+    </form>
+    <table border="2" width="100%">
+        <tr>
+            <th>Serial No.</th>
+            <th>Name</th>
+            <th>Phone no.</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+
+        <% if(contactbook.length>0){ %>
+            <% for(var i=0;i<contactbook.length;i++){ %>
+                <tr>
+                    <td><%- contactbook[i].sno %></td>
+                    <td><%- contactbook[i].name %></td>
+                    <td><%- contactbook[i].phoneno %></td>
+                    <td><%- contactbook[i].email %></td>
+                    <td>
+                        <a id="delete" href="/delete-contact?sno=<%- contactbook[i].sno %>">Delete</a>
+                        <a id="update" href="/update-contact?sno=<%- contactbook[i].sno %>">Update</a>
+                    </td>
+                </tr>
+            <%}%>
+        <% } else{ %>
+            <h1>DATA NOT FOUND</h1>
+        <% } %>
+    </table>
+</body>
+</html>
